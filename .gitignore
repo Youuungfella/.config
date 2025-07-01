@@ -1,0 +1,8 @@
+/*
+!/.gitignore
+
+/*/
+!/waybar/
+!/alacritty/
+!/hypr/
+!/nvim/

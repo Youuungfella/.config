@@ -1,0 +1,29 @@
+[general]
+live_config_reload = true
+import = [
+    "~/.config/alacritty/themes/catppuccin-macchiato.toml"
+]
+
+
+[font]
+size = 12.0
+
+[font.bold]
+family = "JetBrains Mono NL"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono NL"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono NL"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono NL"
+style = "Regular"
+
+[window]
+opacity = 0.95
+blur = true
