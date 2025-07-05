@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local dap = require('dap')
 
 vim.g.mapleader = " "
 map("n", " ", "<Nop>", { silent = true, remap = false })
@@ -50,3 +51,9 @@ map('n', '<leader>ww', function()
 end)
 --Explore binding
 map('n','<leader>ex','<cmd>Ex<CR>', { noremap=true})
+--Debug hotkeys
+map('n', '<F5>', function() dap.continue() end)
+map('n', '<F10>', function() dap.step_over() end)
+map('n', '<F11>', function() dap.step_into() end)
+map('n', '<F12>', function() dap.step_out() end)
+map('n', '<leader>b', function() dap.toggle_breakpoint() end)
