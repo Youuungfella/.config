@@ -81,21 +81,34 @@ return require('packer').startup(function(use)
 
   -- Debugging
   use {
-    'mfussenegger/nvim-dap',
-    after = 'mason.nvim'
+	  'mfussenegger/nvim-dap',
+	  config = function()
+		  local dap = require('dap')
+		  -- Базовая конфигурация (пример для Go)
+		  dap.adapters.delve = {
+			  type = 'server',
+			  port = '${port}',
+			  executable = {
+				  command = 'dlv',
+				  args = {'dap', '-l', '127.0.0.1:${port}'},
+			  }
+		  }
+	  end
   }
+
   use {
-    'leoluz/nvim-dap-go',
-    after = 'nvim-dap',
-    config = function()
-      require('plugins.dap-go')
-    end
+	  'leoluz/nvim-dap-go',
+	  requires = {'mfussenegger/nvim-dap'},
+	  config = function()
+		  require('dap-go').setup()
+	  end
   }
+
   use {
-    'rcarriga/nvim-dap-ui',
-    requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
-    config = function()
-      require('plugins.dap-ui')
-    end
+	  'rcarriga/nvim-dap-ui',
+	  requires = {'mfussenegger/nvim-dap',"nvim-neotest/nvim-nio"},
+	  config = function()
+		  require('plugins.dap-ui')
+	  end
   }
 end)
