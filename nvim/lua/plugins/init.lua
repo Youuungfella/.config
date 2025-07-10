@@ -9,22 +9,14 @@ return require('packer').startup(function(use)
   use {
 	  'mason-org/mason.nvim',
 	  config = function()
-		  require('mason').setup()
-		  ui = {
-			  icons = {
-				  package_installed = "✓",
-				  package_pending = "➜",
-				  package_uninstalled = "✗"
-			  }
-		  }
-
-    end
+		  require('mason')
+	  end
   }
   use {
     'mason-org/mason-lspconfig.nvim',
     after = 'mason.nvim',
     config = function()
-      require('mason-lspconfig').setup()
+      require('plugins.mason-lspconfig')
 
     end
   }
