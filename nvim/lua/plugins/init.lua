@@ -23,13 +23,21 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-lsp-compl'
 
   -- Autocompletion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'saadparwaiz1/cmp_luasnip'
-  use { "L3MON4D3/LuaSnip", run = "make install_jsregexp" }
-  use 'rafamadriz/friendly-snippets'
-  require('plugins.cmp')
-
+  use {
+	  'hrsh7th/nvim-cmp',
+	  requires = {
+		  'hrsh7th/cmp-nvim-lsp',
+		  'hrsh7th/cmp-path',
+		  'hrsh7th/cmp-buffer',
+		  'hrsh7th/cmp-cmdline',
+		  'saadparwaiz1/cmp_luasnip',
+		  {'L3MON4D3/LuaSnip', run = 'make install_jsregexp'},
+		  'rafamadriz/friendly-snippets'
+	  },
+	  config = function()
+		  require('plugins.cmp')
+	  end
+  }
   -- UI
   use {
     "catppuccin/nvim",

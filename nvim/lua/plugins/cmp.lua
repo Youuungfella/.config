@@ -46,5 +46,24 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'path' },  -- Добавлено автодополнение путей
+    { name = 'buffer' }, -- Добавлено автодополнение из буфера
   },
 }
+
+-- Настройка автодополнения для командной строки
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' },
+    { name = 'cmdline' },
+  })
+})
+
+-- Настройка автодополнения для поиска (/ и ?)
+cmp.setup.cmdline({'/', '?'}, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
