@@ -1,15 +1,18 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = {},
+	ensure_installed = {
+		"lua_ls",
+		"pyright",
+		"prismals",
+		"basedpyright",
+		"gopls",
+		"awk_ls",
+		"bashls",
+	},
 })
 
 -- Настройка LSP серверов
 local lspconfig = require('lspconfig')
-
--- Базовые настройки для всех серверов
--- local default_setup = function(server)
-	-- lspconfig[server].setup({})
--- end
 
 -- Специальные настройки для конкретных серверов
 local servers = {
