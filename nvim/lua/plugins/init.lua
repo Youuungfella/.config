@@ -1,5 +1,3 @@
-vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function(use)
   -- Packer
   use 'wbthomason/packer.nvim'
@@ -109,6 +107,15 @@ return require('packer').startup(function(use)
 	  requires = {'mfussenegger/nvim-dap',"nvim-neotest/nvim-nio"},
 	  config = function()
 		  require('plugins.dap-ui')
+	  end
+  }
+
+  -- Terminal
+  use {
+	  "akinsho/toggleterm.nvim",
+	  tag = '*',
+	  config = function()
+		  require("plugins.toggleterm")
 	  end
   }
 end)
