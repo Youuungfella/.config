@@ -34,10 +34,15 @@
 	},
 	"wireplumber": {
 		"format": "{volume}% {icon}",
+		"format-icons": {
+			"headphone": "🎧",
+			"headset": "🎧",
+			"default": ["", "", ""]	
+		},
 		"max-volume": 100.0,
 		"scroll-step": 5.0,
 		"format-muted": " ",
-		"format-icons": ["", "", ""]
+		"smooth-transition": true
 	},
 	"network": {
 		"format-wifi": "   {essid} ({signalStrength}%)",
