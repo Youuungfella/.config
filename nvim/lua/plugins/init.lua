@@ -52,6 +52,12 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+	  "nvim-treesitter/nvim-treesitter-textobjects",
+	  after = "nvim-treesitter",
+	  requires = "nvim-treesitter/nvim-treesitter",
+  }
+
   -- Navigation
   use {
     'nvim-telescope/telescope.nvim',
@@ -95,6 +101,13 @@ return require('packer').startup(function(use)
   }
 
   use {
+	  'theHamsta/nvim-dap-virtual-text',
+	  config = function()
+		  require("nvim-dap-virtual-text").setup()
+	  end
+  }
+
+  use {
 	  'leoluz/nvim-dap-go',
 	  requires = {'mfussenegger/nvim-dap'},
 	  config = function()
@@ -109,6 +122,8 @@ return require('packer').startup(function(use)
 		  require('plugins.dap-ui')
 	  end
   }
+
+  use 'nvim-neotest/nvim-nio'
 
   -- Terminal
   use {
