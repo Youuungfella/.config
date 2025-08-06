@@ -51,3 +51,7 @@ vim.cmd.colorscheme "catppuccin"
 --Костыль на сброс фона telescope окна
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE", fg = "#7aa2f7" })
+-- Фикс для go.nvim окон (аналогично вашему костылю для Telescope)
+vim.api.nvim_set_hl(0, "GoNormal", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "GoBorder", { bg = "NONE", fg = "#7aa2f7" })  -- Используем синий из Catppuccin
+vim.api.nvim_set_hl(0, "GoFloatTitle", { bg = "NONE", fg = "#c0caf5" })  -- Цвет заголовков

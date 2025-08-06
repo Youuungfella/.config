@@ -118,4 +118,13 @@ return require('packer').startup(function(use)
 		  require("plugins.toggleterm")
 	  end
   }
+
+  -- Plugin for GO
+  use {
+	  'ray-x/go.nvim',
+	  config = function()
+		  require("plugins.go")
+	  end
+  }
+  use 'ray-x/guihua.lua'
 end)

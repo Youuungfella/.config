@@ -27,11 +27,11 @@ end, {buffer = bufnr, desc = 'Show references'})
 vim.api.nvim_set_keymap(
   'n',
   '<leader>ca',
-  '<cmd>lua vim.lsp.buf.code_action()<CR>',
+  '<cmd>GoCodeAction<CR>',
   { noremap = true, silent = true, desc = "Code Action" }
 )
 --Go code runner
-map('n','<leader>rr','<cmd>!go run %:p<CR>', { noremap = true, silent = true, desc = "Run current gofile" })
+map('n','<leader>rr','<cmd>GoRun<CR>', { noremap = true, silent = true, desc = "Run current gofile" })
 --Diagnostics keymaps
 -- map('n','<leader>wn','<cmd>lua vim.diagnostic.goto_next()<CR>',{ noremap = true, silent = true, desc = "Go to next warning" })
 -- map('n','<leader>wp','<cmd>lua vim.diagnostic.goto_prev()<CR>',{ noremap = true, silent = true, desc = "Go to prev warning" })
