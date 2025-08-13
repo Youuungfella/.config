@@ -142,4 +142,13 @@ return require('packer').startup(function(use)
 	  end
   }
   use 'ray-x/guihua.lua'
+
+  -- Lazygit
+  use({
+	  "kdheepak/lazygit.nvim",
+	  -- optional for floating window border decoration
+	  requires = {
+		  "nvim-lua/plenary.nvim",
+	  },
+  })
 end)
