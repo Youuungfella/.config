@@ -91,5 +91,8 @@
 		"format": "{:%H:%M | %e %B | %a} ",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"format-alt": "{:%d-%m-%Y}"
+	},
+	"hyprland/window": {
+		"max-length": 80
 	}
 }
