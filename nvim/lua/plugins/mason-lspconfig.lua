@@ -14,13 +14,11 @@ require("mason").setup()
 		-- 	})
 		--
 		-- -- Настройка LSP серверов
-local lspconfig = require('lspconfig')
+local lspconfig = vim.lsp.config
 
--- Явная настройка gopls с полным контролем параметров
-require('lspconfig').gopls.setup({
+lspconfig('gopls', {
 	cmd = {"gopls", "serve"},
 	filetypes = {"go", "gomod", "gowork", "gotmpl"},
-	root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
 	settings = {
 		gopls = {
 			-- Настройки диагностики (важная часть!)
@@ -83,9 +81,12 @@ require('lspconfig').gopls.setup({
 	end
 })
 
+vim.lsp.enable('gopls')
+
+
 -- Отключаем стандартные биндинги go.nvim
-require('go').setup({
-	lsp_cfg = false,  -- Полностью отключаем LSP-конфиг go.nvim
-	lsp_keymaps = false, -- Отключаем все keybindings из go.nvim
-	-- Остальные настройки go.nvim...
-})
+-- require('go').setup({
+-- 	lsp_cfg = false,  -- Полностью отключаем LSP-конфиг go.nvim
+-- 	lsp_keymaps = false, -- Отключаем все keybindings из go.nvim
+-- 	-- Остальные настройки go.nvim...
+-- })
