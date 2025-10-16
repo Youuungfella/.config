@@ -3,7 +3,9 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
+  use {
+	  'neovim/nvim-lspconfig',
+  }
   use {
 	  'mason-org/mason.nvim',
 	  config = function()

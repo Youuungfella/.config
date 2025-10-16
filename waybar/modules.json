@@ -71,7 +71,7 @@
 		"swap-icon-label": false
 	},
 	"hyprland/language": {
-		"format": "  {}",
+		"format": "  {}",
 		"format-en": "ENG",
 		"format-ru": "RUS"
 	},
