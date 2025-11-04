@@ -2,10 +2,6 @@ return require('packer').startup(function(use)
   -- Packer
   use 'wbthomason/packer.nvim'
 
-  -- LSP
-  use {
-	  'neovim/nvim-lspconfig',
-  }
   use {
 	  'mason-org/mason.nvim',
 	  config = function()
@@ -20,7 +16,6 @@ return require('packer').startup(function(use)
 
     end
   }
-  use 'mfussenegger/nvim-lsp-compl'
 
   -- Autocompletion
   use {
