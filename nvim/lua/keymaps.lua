@@ -5,17 +5,6 @@ vim.g.mapleader = " "
 map("n", " ", "<Nop>", { silent = true, remap = false })
 map('i', 'jk', '<Esc>', { noremap = true, silent = true })
 map('c', 'jk', '<Esc>', { noremap = true, silent = true })
---LSP bindings
-map('n', 'gd', function()
-  vim.lsp.buf.definition()
-end, { buffer = bufnr, desc = 'Go to Definition' })
-
-vim.api.nvim_set_keymap(
-  'n',
-  '<leader>re',
-  '<cmd>lua vim.lsp.buf.rename()<CR>',
-  { noremap = true, silent = true, desc = "Lsp rename" }
-)
 
 map('n', 'gdv', function()
   vim.cmd('vsplit')
@@ -50,8 +39,10 @@ map('n', '<leader>ww', function()
     end
   })
 end)
+
 --Explore binding
-map('n','<leader>ex','<cmd>Ex<CR>', { noremap=true})
+map('n','<leader>ex','<cmd>Ex<CR>', { noremap=true, desc="File Explorer"})
+
 --Debug hotkeys
 map('n', '<F5>', "<cmd>GoDebug<CR>", {desc = "Start debugging"})
 -- map('n', '<F10>', function() dap.step_over() end)
