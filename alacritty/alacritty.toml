@@ -6,7 +6,7 @@ import = [
 
 
 [font]
-size = 12.0
+size = 14.0
 
 [font.bold]
 family = "JetBrains Mono NL"
@@ -27,6 +27,11 @@ style = "Regular"
 [window]
 opacity = 0.85
 blur = true
+dynamic_padding = true
+
+[window.padding]
+x = 0
+y = 0
 
 [env]
-TERM = "xterm-256color"
+TERM = "alacritty"
