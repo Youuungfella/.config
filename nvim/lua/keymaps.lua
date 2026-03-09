@@ -20,7 +20,7 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true, desc = "Code Action" }
 )
 --Go code runner
-map('n', '<leader>rr', '<cmd>GoRun<CR>', { noremap = true, silent = true, desc = "Run current gofile" })
+map('n', '<leader>rr', '<cmd>GoRun -F<CR>', { noremap = true, silent = true, desc = "Run current gofile" })
 --Diagnostics keymaps
 -- map('n','<leader>wn','<cmd>lua vim.diagnostic.goto_next()<CR>',{ noremap = true, silent = true, desc = "Go to next warning" })
 -- map('n','<leader>wp','<cmd>lua vim.diagnostic.goto_prev()<CR>',{ noremap = true, silent = true, desc = "Go to prev warning" })

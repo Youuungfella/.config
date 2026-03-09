@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-cmdline',
 			'saadparwaiz1/cmp_luasnip',
-			{'L3MON4D3/LuaSnip', run = 'make install_jsregexp'},
+			{ 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' },
 			'rafamadriz/friendly-snippets'
 		},
 		config = function()
@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-telescope/telescope.nvim',
 		tag = '0.1.8',
-		requires = { {'nvim-lua/plenary.nvim'} },
+		requires = { { 'nvim-lua/plenary.nvim' } },
 		config = function()
 			require('plugins.telescope')
 		end
@@ -83,7 +83,7 @@ return require('packer').startup(function(use)
 				port = '${port}',
 				executable = {
 					command = 'dlv',
-					args = {'dap', '-l', '127.0.0.1:${port}'},
+					args = { 'dap', '-l', '127.0.0.1:${port}' },
 				}
 			}
 		end
@@ -98,7 +98,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'leoluz/nvim-dap-go',
-		requires = {'mfussenegger/nvim-dap'},
+		requires = { 'mfussenegger/nvim-dap' },
 		config = function()
 			require('dap-go').setup()
 		end
@@ -106,7 +106,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'rcarriga/nvim-dap-ui',
-		requires = {'mfussenegger/nvim-dap',"nvim-neotest/nvim-nio"},
+		requires = { 'mfussenegger/nvim-dap', "nvim-neotest/nvim-nio" },
 		config = function()
 			require('plugins.dap-ui')
 		end
