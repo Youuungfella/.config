@@ -1,3 +1,4 @@
+require('lsp')
 require('plugins')
 require('settings')
 require('autocommands')
