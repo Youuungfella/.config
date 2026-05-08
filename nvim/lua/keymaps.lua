@@ -1,7 +1,6 @@
 local map = vim.keymap.set
 local dap = require('dap')
 
-vim.g.mapleader = " "
 map("n", " ", "<Nop>", { silent = true, remap = false })
 map('i', 'jk', '<Esc>', { noremap = true, silent = true })
 map('c', 'jk', '<Esc>', { noremap = true, silent = true })
