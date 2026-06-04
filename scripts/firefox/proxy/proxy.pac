@@ -2,7 +2,7 @@ function FindProxyForURL(url, host) {
 	var ciadpiSites = [
 		"youtube.com", "netflix.com", "twitter.com",
 		"instagram.com", "facebook.com","youtube.com", "youtu.be", "ytimg.com", "ggpht.com",
-		"googlevideo.com", "googleapis.com", "gstatic.com"
+		"googlevideo.com", "googleapis.com", "gstatic.com", "neovim.io", "wiki.hypr.land"
 	];
     
     host = host.toLowerCase();
