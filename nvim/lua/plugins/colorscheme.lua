@@ -1,7 +1,7 @@
 require("catppuccin").setup({
 	flavour = "macchiato", -- latte, frappe, macchiato, mocha
 	background = {      -- :h background
-		light = "macchiato",
+		light = "latte",
 		dark = "macchiato",
 	},
 	transparent_background = true, -- disables setting the background color.
@@ -38,10 +38,18 @@ require("catppuccin").setup({
 			["@type.builtin"] = { fg = colors.red },
 			Type = { fg = colors.red },
 
-			-- Mason boarder and transparent background 
 			MasonNormal = { bg = "NONE" },
 			MasonBorder = { fg = colors.blue, bg = "NONE" },
-			TelescopeNormal = { bg = "NONE"},
+			TelescopeNormal = { bg = "NONE" },
+			TelescopeBorder = { bg = "NONE", fg = "#7aa2f7" },
+			CmpPmenu = { bg = "NONE" },                  -- Само всплывающее меню
+			CmpPmenuBorder = { fg = colors.blue, bg = "NONE" }, -- Рамка меню (используем синий)
+			CmpDoc = { bg = "NONE" },                    -- Окно документации рядом
+			CmpDocBorder = { fg = colors.lavender, bg = "NONE" }, -- Рамка документации (лавандовый)
+			NormalFloat = { bg = "NONE" },
+			FloatBorder = { bg = "NONE" },
+			CmpItemAbbrMatch = { fg = colors.pink, bg = "NONE" },
+			CmpItemAbbrMatchFuzzy = { fg = colors.pink, bg = "NONE" },
 		}
 	end,
 	default_integrations = true,
@@ -66,11 +74,3 @@ require("catppuccin").setup({
 	},
 })
 vim.cmd.colorscheme "catppuccin"
-
---Костыль на сброс фона telescope окна
-vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE", fg = "#7aa2f7" })
--- Фикс для go.nvim окон (аналогично вашему костылю для Telescope)
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
