@@ -187,4 +187,174 @@ require("lazy").setup({
 		"kdheepak/lazygit.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
+	-- Avante AI plugin
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		lazy = false,
+		version = false,
+		build = "make",
+		opts = {
+			-- Указываем использовать ollama, которая теперь лежит в таблице providers
+			__inherited_from = "openai",
+			instructions_file = "avante.md",
+			provider = "ollama",
+			ft = { "markdown", "Avante" },
+			hints = { enabled = true },
+			windows = {
+				position = "right",
+				width = 40,
+			},
+			-- Новая единая структура согласно гайду миграции
+			providers = {
+				ollama = {
+					endpoint = "http://127.0.0.1:11434",
+					model = "deepseek-coder-v2:16b", --qwen2.5-coder:7b
+					timeout = 30000,
+					extra_request_body = {
+						options = {
+							num_ctx = 32768,
+							temperature = 0.2,
+							keep_alive = "5m"
+						},
+					},
+				},
+			},
+			behaviour = {
+				auto_suggestions = false,
+				support_paste_from_clipboard = false,
+			},
+		},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			"nvim-mini/mini.pick",  -- for file_selector provider mini.pick
+			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+			"hrsh7th/nvim-cmp",     -- autocompletion for avante commands and mentions
+			"ibhagwan/fzf-lua",     -- for file_selector provider fzf
+			"stevearc/dressing.nvim", -- for input provider dressing
+			"folke/snacks.nvim",    -- for input provider snacks
+			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			{
+				-- support for image pasting
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					-- recommended settings
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+					},
+				},
+			},
+			{
+				'MeanderingProgrammer/render-markdown.nvim',
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
+			},
+		},
+	},
+	-- {
+	-- 	"olimorris/codecompanion.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"hrsh7th/nvim-cmp", -- Опционально для автодополнения
+	-- 	},
+	-- 	config = function()
+	-- 		require("codecompanion").setup({
+	-- 			strategies = {
+	-- 				chat = { adapter = "ollama" },
+	-- 				inline = { adapter = "ollama" },
+	-- 			},
+	-- 			adapters = {
+	-- 				ollama = function()
+	-- 					return require("codecompanion.adapters").extend("ollama", {
+	-- 						schema = {
+	-- 							model = { default = "qwen2.5-coder:7b" },
+	-- 							num_ctx = { default = 16384 },
+	-- 						},
+	-- 					})
+	-- 				end,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- }
+	{
+		'akinsho/bufferline.nvim',
+		version = "*",
+		dependencies = 'nvim-tree/nvim-web-devicons',
+		config = function()
+			require("bufferline").setup {
+				highlights = require("catppuccin.special.bufferline").get_theme()
+			}
+		end
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+		config = function()
+			require("ibl").setup()
+		end,
+	},
+	{
+		"folke/trouble.nvim",
+		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>cs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		}
+	},
+	{
+		"sphamba/smear-cursor.nvim",
+		opts = {
+			stiffness = 0.8,
+			trailing_stiffness = 0.6,
+			damping = 0.95,
+		},
+	},
+	--Translator plugin
+	{
+		'potamides/pantran.nvim',
+		config = function()
+			require("plugins.pantran")
+		end
+	}
 })

@@ -11,3 +11,5 @@ vim.opt.tabstop = 4       -- 1 таб = 4 пробела
 vim.opt.shiftwidth = 4    -- Размер отступа = 4 пробела
 vim.opt.softtabstop = 4   -- "Мягкие" табы (backspace будет удалять как таб)
 vim.opt.cmdheight = 0
+vim.opt.laststatus = 3
+vim.opt.termguicolors = true

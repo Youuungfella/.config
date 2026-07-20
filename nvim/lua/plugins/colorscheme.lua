@@ -52,7 +52,7 @@ require("catppuccin").setup({
 			CmpItemAbbrMatchFuzzy = { fg = colors.pink, bg = "NONE" },
 		}
 	end,
-	default_integrations = true,
+	auto_integrations = true,
 	integrations = {
 		cmp = true,
 		gitsigns = true,
