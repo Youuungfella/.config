@@ -4,17 +4,9 @@
 		"tooltip": true,
 		"tooltip-format": "btw"
 	},
-
-	"hyprland/workspaces": {
-		"disable-scroll": true,
-		"all-outputs": true,
-		"warp-on-scroll": false,
+	"ext/workspaces": {
 		"format": "{name}",
-		"format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
-		}
+		"on-click": "activate"
 	},
 	"bluetooth": {
 		"format": " {status}",
@@ -95,4 +87,5 @@
 	"hyprland/window": {
 		"max-length": 80
 	}
+
 }
