@@ -70,6 +70,7 @@ require("catppuccin").setup({
 		telescope = {
 			enabled = true
 		},
+		noice = true,
 		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 	},
 })

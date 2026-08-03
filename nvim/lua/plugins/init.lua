@@ -209,7 +209,7 @@ require("lazy").setup({
 			providers = {
 				ollama = {
 					endpoint = "http://127.0.0.1:11434",
-					model = "deepseek-coder-v2:16b", --qwen2.5-coder:7b
+					model = "qwen2.5-coder:7b", --qwen2.5-coder:7b or deepseek-coder-v2:16b
 					timeout = 30000,
 					extra_request_body = {
 						options = {
@@ -356,5 +356,19 @@ require("lazy").setup({
 		config = function()
 			require("plugins.pantran")
 		end
-	}
+	},
+	-- lazy.nvim
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+		},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+		config = function()
+			require("plugins.noice")
+		end
+	},
 })
