@@ -8,7 +8,7 @@
 	// Choose the order of the modules
 	"modules-left": [
 		"custom/arch",
-		"hyprland/workspaces"
+		"ext/workspaces"
 	],
 	"modules-center": [
 		"hyprland/window"
@@ -21,6 +21,7 @@
 		"cpu",
 		"memory",
 		"temperature",
+		"custom/vram",
 		"hyprland/language",
 		"battery",
 		"clock"
