@@ -57,7 +57,7 @@ local lsp_configs = {
 				gofumpt = true,
 				staticcheck = true,
 				usePlaceholders = true,
-				semanticTokens = true,
+				semanticTokens = false,
 				buildFlags = { "-tags=tag1,tag2" },
 				["local"] = "local/trash",
 				matcher = "Fuzzy",
