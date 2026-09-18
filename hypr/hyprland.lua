@@ -47,6 +47,13 @@ hl.monitor({
     scale = "1",
 })
 
+hl.monitor({
+    output = "HDMI-A-1",
+    mode = "1920x1080@75.00",
+    position = "0x0",
+    scale = "1",
+})
+
 --##################
 --## MY PROGRAMS ###
 --##################
@@ -304,7 +311,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = {
-        class = "retroarch|steam|org.qbittorrent.qBittorrent|qbittorrent",
+        class = "com.libretro.RetroArch|steam|org.qbittorrent.qBittorrent|qbittorrent",
     },
     workspace = "4",
 })
@@ -348,27 +355,12 @@ hl.config({
     -- https://wiki.hyprland.org/Configuring/Variables/#animations
     animations = {
         enabled = true,
-        -- Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
     },
-    -- Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
-    -- "Smart gaps" / "No gaps when only"
-    -- uncomment all if you wish to use that.
-    -- workspace = w[tv1], gapsout:0, gapsin:0
-    -- workspace = f[1], gapsout:0, gapsin:0
-    -- windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
-    -- windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
-    -- windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
-    -- windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
-    -- See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-    -- dwindle {
-    --     pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-    --     preserve_split = true # You probably want this
-    -- }
-    -- See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+
     master = {
         new_status = "master",
     },
-    -- https://wiki.hyprland.org/Configuring/Variables/#misc
+
     misc = {
         force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
@@ -376,7 +368,7 @@ hl.config({
     --############
     --## INPUT ###
     --############
-    -- https://wiki.hyprland.org/Configuring/Variables/#input
+
     input = {
         kb_layout = "us,ru",
         kb_variant = "",
@@ -391,57 +383,7 @@ hl.config({
     },
     -- https://wiki.hyprland.org/Configuring/Variables/#gestures
     gestures = {
-        -- workspace_swipe = false
     },
-    -- Example per-device config
-    -- See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-    --##################
-    --## KEYBINDINGS ###
-    --##################
-    -- See https://wiki.hyprland.org/Configuring/Keywords/
-    -- Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-    -- bind = $mainMod, Z, togglesplit, # dwindle
-    -- Screenshot a window
-    -- Screenshot a monitor
-    -- Screenshot a region
-    -- Move focus with mainMod + arrow keys
-    -- Swap windows
-    -- Switch workspaces with mainMod + [0-9]
-    -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-    -- next workspace on monitor
-    -- Example special workspace (scratchpad)
-    -- Scroll through existing workspaces with mainMod + scroll
-    -- Move/resize windows with mainMod + LMB/RMB and dragging
-    -- Laptop multimedia keys for volume and LCD brightness
-    -- Управление громкостью и мультимедия
-    --bind = , XF86AudioRaiseVolume, exec, pamixer -i 5
-    --bind = , XF86AudioLowerVolume, exec, pamixer -d 5
-    --bind = , XF86AudioMicMute, exec, pamixer --default-source -m
-    --bind = , XF86AudioMute, exec, pamixer -t
-    --bind = , XF86AudioPause, exec, playerctl play-pause
-    --bind = , XF86AudioNext, exec, playerctl next
-    --bind = , XF86AudioPrev, exec, playerctl previous
-    -- Requires playerctl
-    --#############################
-    --## WINDOWS AND WORKSPACES ###
-    --#############################
-    -- See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-    -- See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
-    -- Example windowrule v1
-    -- windowrule = float, ^(kitty)$
-    -- Example windowrule v2
-    -- Zathura - открывать в специальном рабочем пространстве
-    -- Firefox - рабочее пространство 1
-    -- Telegram - рабочее пространство 2
-    -- windowrule = match:class Alacritty, border_size 1
-    -- windowrulev2 = suppressevent, maximize, class:.*rulev2 = float,class:^(kitty)$,title:^(kitty)$
-    -- windowrulev2 = workspace special, focus, class:^(org.pwmt.zathura)$
-    -- windowrulev2 = workspace 1, fullscreen, focus, class:^(firefox)$
-    -- windowrulev2 = workspace 2, focus, class:^(org.telegram.desktop)$
-    -- windowrulev2 = workspace 4, fullscreen, focus, title:^(RetroArch)$
-    -- windowrulev2 = workspace 4, focus, title:^(Steam)$
-    -- windowrulev2 = workspace 4, focus, class:^(org.qbittorrent.qBittorrent)$
-    -- Ignore maximize requests from apps. You'll probably like this.
 })
 
 hl.on("hyprland.start", function()
@@ -453,4 +395,5 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("Telegram", { workspace = "2 silent" })
     hl.exec_cmd(terminal .. " -e tmux", { workspace = "3 silent" })
     hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("udiskie &")
 end)

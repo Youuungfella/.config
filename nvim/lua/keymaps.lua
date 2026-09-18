@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-local dap = require('dap')
 
 map("n", " ", "<Nop>", { silent = true, remap = false })
 map('i', 'jk', '<Esc>', { noremap = true, silent = true })
@@ -49,3 +48,6 @@ map('n', '<F5>', "<cmd>GoDebug<CR>", { desc = "Start debugging" })
 -- map('n', '<F12>', function() dap.step_out() end)
 map('n', '<leader>b', '<cmd>GoBreakToggle<CR>', { desc = "Toggle Break Point" })
 map('n', '<leader>fz', '<cmd>FzfLua<CR>', { desc = "Fuzzyfinder" })
+
+-- Lazygit
+map('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = "Lazy git hot key" })
