@@ -8,6 +8,9 @@
 !/nvim/
 !/wofi/
 !/scripts/
+!/kitty/
+light-theme.auto.conf
+current-theme.conf
 hyprpaper.conf
 nvidia-fan-ctrl.sh
 lazy-lock.json

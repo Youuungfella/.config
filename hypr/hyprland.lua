@@ -54,7 +54,7 @@ hl.monitor({
 -- See https://wiki.hyprland.org/Configuring/Keywords/
 
 -- Set programs that you use
-local terminal = "alacritty"
+local terminal = "kitty" -- or alacritty
 local fileManager = "thunar"
 local menu = "wofi --show drun -i"
 
